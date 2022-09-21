@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2720be6ff82840c5807554f129bc3fb2" Name="Diagram1">
+        <EntityTypeShape EntityType="CenterManagerModel.Attendance" Width="1.5" PointX="8.25" PointY="11.25" />
+        <EntityTypeShape EntityType="CenterManagerModel.Book" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="CenterManagerModel.Class" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="CenterManagerModel.ExamDetail" Width="1.5" PointX="10.5" PointY="15.625" />
+        <EntityTypeShape EntityType="CenterManagerModel.Exam" Width="1.5" PointX="8.25" PointY="15.375" />
+        <EntityTypeShape EntityType="CenterManagerModel.Group" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="CenterManagerModel.Lecture" Width="1.5" PointX="6" PointY="4.5" />
+        <EntityTypeShape EntityType="CenterManagerModel.Setting" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CenterManagerModel.Student" Width="1.5" PointX="3" PointY="18.75" />
+        <EntityTypeShape EntityType="CenterManagerModel.StudentBook" Width="1.5" PointX="5.25" PointY="14.375" />
+        <EntityTypeShape EntityType="CenterManagerModel.StudentExam" Width="1.5" PointX="12.75" PointY="17.875" />
+        <EntityTypeShape EntityType="CenterManagerModel.StudentsGroup" Width="1.5" PointX="11.25" PointY="12.5" />
+        <EntityTypeShape EntityType="CenterManagerModel.Subject" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CenterManagerModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CenterManagerModel.User" Width="1.5" PointX="11" PointY="2.625" />
+        <EntityTypeShape EntityType="CenterManagerModel.UsersPermission" Width="1.5" PointX="8.75" PointY="1.125" />
+        <AssociationConnector Association="CenterManagerModel.FK_Attendance_Groups" />
+        <AssociationConnector Association="CenterManagerModel.FK_Attendance_Lectures" />
+        <AssociationConnector Association="CenterManagerModel.FK_Attendance_Student" />
+        <AssociationConnector Association="CenterManagerModel.FK_Books_Classes" />
+        <AssociationConnector Association="CenterManagerModel.FK_Books_Subjects" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentBooks_Books" />
+        <AssociationConnector Association="CenterManagerModel.FK_Groups_Classes" />
+        <AssociationConnector Association="CenterManagerModel.FK_Student_Classes" />
+        <AssociationConnector Association="CenterManagerModel.FK_ExamDetails_Exams" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentExam_ExamDetails" />
+        <AssociationConnector Association="CenterManagerModel.FK_Exams_Groups" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentExam_Exams" />
+        <AssociationConnector Association="CenterManagerModel.FK_Groups_Subjects" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentsGroups_Groups" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentBooks_Student" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentExam_Student" />
+        <AssociationConnector Association="CenterManagerModel.FK_StudentsGroups_Student" />
+        <AssociationConnector Association="CenterManagerModel.FK_Users_UsersPermissions" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CenterManagerModelStoreContainer" CdmEntityContainer="CenterManagerEntities">
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="CenterManagerModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="Attend" ColumnName="Attend" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="LecID" ColumnName="LecID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="CenterManagerModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Price_for_St" ColumnName="Price_for_St" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="CenterManagerModel.Class">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="Class_Name" ColumnName="Class_Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamDetails">
+      <EntityTypeMapping TypeName="CenterManagerModel.ExamDetail">
+        <MappingFragment StoreEntitySet="ExamDetails">
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams">
+      <EntityTypeMapping TypeName="CenterManagerModel.Exam">
+        <MappingFragment StoreEntitySet="Exams">
+          <ScalarProperty Name="FinalMark" ColumnName="FinalMark" />
+          <ScalarProperty Name="NumberOfQuestions" ColumnName="NumberOfQuestions" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="CenterManagerModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+          <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ToHour" ColumnName="ToHour" />
+          <ScalarProperty Name="FromHour" ColumnName="FromHour" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lectures">
+      <EntityTypeMapping TypeName="CenterManagerModel.Lecture">
+        <MappingFragment StoreEntitySet="Lectures">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LecNumber" ColumnName="LecNumber" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="CenterManagerModel.Setting">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="TitleColor" ColumnName="TitleColor" />
+          <ScalarProperty Name="BackColor" ColumnName="BackColor" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="CenterManagerModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Study_Level" ColumnName="Study_Level" />
+          <ScalarProperty Name="School" ColumnName="School" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="IsMale" ColumnName="IsMale" />
+          <ScalarProperty Name="Is_for_Contact" ColumnName="Is_for_Contact" />
+          <ScalarProperty Name="Parent_Number" ColumnName="Parent_Number" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ST_Phone" ColumnName="ST_Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="STCode" ColumnName="STCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentBooks">
+      <EntityTypeMapping TypeName="CenterManagerModel.StudentBook">
+        <MappingFragment StoreEntitySet="StudentBooks">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Remainder" ColumnName="Remainder" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="AfterDiscount" ColumnName="AfterDiscount" />
+          <ScalarProperty Name="BeforeDiscount" ColumnName="BeforeDiscount" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentExams">
+      <EntityTypeMapping TypeName="CenterManagerModel.StudentExam">
+        <MappingFragment StoreEntitySet="StudentExam">
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="QID" ColumnName="QID" />
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentsGroups">
+      <EntityTypeMapping TypeName="CenterManagerModel.StudentsGroup">
+        <MappingFragment StoreEntitySet="StudentsGroups">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="STID" ColumnName="STID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="CenterManagerModel.Subject">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CenterManagerModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CenterManagerModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="PermissionsID" ColumnName="PermissionsID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersPermissions">
+      <EntityTypeMapping TypeName="CenterManagerModel.UsersPermission">
+        <MappingFragment StoreEntitySet="UsersPermissions">
+          <ScalarProperty Name="EditUsers" ColumnName="EditUsers" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="CorrentExams" ColumnName="CorrentExams" />
+          <ScalarProperty Name="ViewExams" ColumnName="ViewExams" />
+          <ScalarProperty Name="AddExam" ColumnName="AddExam" />
+          <ScalarProperty Name="Exams" ColumnName="Exams" />
+          <ScalarProperty Name="StudentBooks" ColumnName="StudentBooks" />
+          <ScalarProperty Name="ViewBooks" ColumnName="ViewBooks" />
+          <ScalarProperty Name="AddBook" ColumnName="AddBook" />
+          <ScalarProperty Name="Books" ColumnName="Books" />
+          <ScalarProperty Name="ViewAttendance" ColumnName="ViewAttendance" />
+          <ScalarProperty Name="TakeAttendance" ColumnName="TakeAttendance" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+          <ScalarProperty Name="ViewAllGroups" ColumnName="ViewAllGroups" />
+          <ScalarProperty Name="StudentGroups" ColumnName="StudentGroups" />
+          <ScalarProperty Name="AddGroup" ColumnName="AddGroup" />
+          <ScalarProperty Name="Groups" ColumnName="Groups" />
+          <ScalarProperty Name="ShowStudents" ColumnName="ShowStudents" />
+          <ScalarProperty Name="EditClasses" ColumnName="EditClasses" />
+          <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+          <ScalarProperty Name="AddStudent" ColumnName="AddStudent" />
+          <ScalarProperty Name="Students" ColumnName="Students" />
+          <ScalarProperty Name="MainPage" ColumnName="MainPage" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

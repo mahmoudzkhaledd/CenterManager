@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CenterManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CenterManagerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attendances" EntityType="CenterManagerModel.Attendance" />
+    <EntitySet Name="Books" EntityType="CenterManagerModel.Book" />
+    <EntitySet Name="Classes" EntityType="CenterManagerModel.Class" />
+    <EntitySet Name="ExamDetails" EntityType="CenterManagerModel.ExamDetail" />
+    <EntitySet Name="Exams" EntityType="CenterManagerModel.Exam" />
+    <EntitySet Name="Groups" EntityType="CenterManagerModel.Group" />
+    <EntitySet Name="Lectures" EntityType="CenterManagerModel.Lecture" />
+    <EntitySet Name="Settings" EntityType="CenterManagerModel.Setting" />
+    <EntitySet Name="Students" EntityType="CenterManagerModel.Student" />
+    <EntitySet Name="StudentBooks" EntityType="CenterManagerModel.StudentBook" />
+    <EntitySet Name="StudentExams" EntityType="CenterManagerModel.StudentExam" />
+    <EntitySet Name="StudentsGroups" EntityType="CenterManagerModel.StudentsGroup" />
+    <EntitySet Name="Subjects" EntityType="CenterManagerModel.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="CenterManagerModel.sysdiagram" />
+    <EntitySet Name="Users" EntityType="CenterManagerModel.User" />
+    <EntitySet Name="UsersPermissions" EntityType="CenterManagerModel.UsersPermission" />
+    <AssociationSet Name="FK_Attendance_Groups" Association="CenterManagerModel.FK_Attendance_Groups">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_Lectures" Association="CenterManagerModel.FK_Attendance_Lectures">
+      <End Role="Lecture" EntitySet="Lectures" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_Student" Association="CenterManagerModel.FK_Attendance_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Classes" Association="CenterManagerModel.FK_Books_Classes">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Subjects" Association="CenterManagerModel.FK_Books_Subjects">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentBooks_Books" Association="CenterManagerModel.FK_StudentBooks_Books">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="StudentBook" EntitySet="StudentBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Classes" Association="CenterManagerModel.FK_Groups_Classes">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Classes" Association="CenterManagerModel.FK_Student_Classes">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamDetails_Exams" Association="CenterManagerModel.FK_ExamDetails_Exams">
+      <End Role="Exam" EntitySet="Exams" />
+      <End Role="ExamDetail" EntitySet="ExamDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentExam_ExamDetails" Association="CenterManagerModel.FK_StudentExam_ExamDetails">
+      <End Role="ExamDetail" EntitySet="ExamDetails" />
+      <End Role="StudentExam" EntitySet="StudentExams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exams_Groups" Association="CenterManagerModel.FK_Exams_Groups">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Exam" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentExam_Exams" Association="CenterManagerModel.FK_StudentExam_Exams">
+      <End Role="Exam" EntitySet="Exams" />
+      <End Role="StudentExam" EntitySet="StudentExams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Subjects" Association="CenterManagerModel.FK_Groups_Subjects">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentsGroups_Groups" Association="CenterManagerModel.FK_StudentsGroups_Groups">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="StudentsGroup" EntitySet="StudentsGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentBooks_Student" Association="CenterManagerModel.FK_StudentBooks_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentBook" EntitySet="StudentBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentExam_Student" Association="CenterManagerModel.FK_StudentExam_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentExam" EntitySet="StudentExams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentsGroups_Student" Association="CenterManagerModel.FK_StudentsGroups_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentsGroup" EntitySet="StudentsGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UsersPermissions" Association="CenterManagerModel.FK_Users_UsersPermissions">
+      <End Role="UsersPermission" EntitySet="UsersPermissions" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LecID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="Attend" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="CenterManagerModel.FK_Attendance_Groups" FromRole="Attendance" ToRole="Group" />
+    <NavigationProperty Name="Lecture" Relationship="CenterManagerModel.FK_Attendance_Lectures" FromRole="Attendance" ToRole="Lecture" />
+    <NavigationProperty Name="Student" Relationship="CenterManagerModel.FK_Attendance_Student" FromRole="Attendance" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="Int32" />
+    <Property Name="Price_for_St" Type="Double" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="SubjectID" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Class1" Relationship="CenterManagerModel.FK_Books_Classes" FromRole="Book" ToRole="Class" />
+    <NavigationProperty Name="Subject" Relationship="CenterManagerModel.FK_Books_Subjects" FromRole="Book" ToRole="Subject" />
+    <NavigationProperty Name="StudentBooks" Relationship="CenterManagerModel.FK_StudentBooks_Books" FromRole="Book" ToRole="StudentBook" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Class_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Books" Relationship="CenterManagerModel.FK_Books_Classes" FromRole="Class" ToRole="Book" />
+    <NavigationProperty Name="Groups" Relationship="CenterManagerModel.FK_Groups_Classes" FromRole="Class" ToRole="Group" />
+    <NavigationProperty Name="Students" Relationship="CenterManagerModel.FK_Student_Classes" FromRole="Class" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="ExamDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExamID" Type="Int32" Nullable="false" />
+    <Property Name="Mark" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Exam" Relationship="CenterManagerModel.FK_ExamDetails_Exams" FromRole="ExamDetail" ToRole="Exam" />
+    <NavigationProperty Name="StudentExams" Relationship="CenterManagerModel.FK_StudentExam_ExamDetails" FromRole="ExamDetail" ToRole="StudentExam" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NumberOfQuestions" Type="Int32" Nullable="false" />
+    <Property Name="FinalMark" Type="Double" Nullable="false" />
+    <NavigationProperty Name="ExamDetails" Relationship="CenterManagerModel.FK_ExamDetails_Exams" FromRole="Exam" ToRole="ExamDetail" />
+    <NavigationProperty Name="Group" Relationship="CenterManagerModel.FK_Exams_Groups" FromRole="Exam" ToRole="Group" />
+    <NavigationProperty Name="StudentExams" Relationship="CenterManagerModel.FK_StudentExam_Exams" FromRole="Exam" ToRole="StudentExam" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="FromHour" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ToHour" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="SubjectID" Type="Int32" Nullable="false" />
+    <Property Name="Saturday" Type="Boolean" Nullable="false" />
+    <Property Name="Sunday" Type="Boolean" Nullable="false" />
+    <Property Name="Monday" Type="Boolean" Nullable="false" />
+    <Property Name="Tuesday" Type="Boolean" Nullable="false" />
+    <Property Name="Wednesday" Type="Boolean" Nullable="false" />
+    <Property Name="Thursday" Type="Boolean" Nullable="false" />
+    <Property Name="Friday" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Attendances" Relationship="CenterManagerModel.FK_Attendance_Groups" FromRole="Group" ToRole="Attendance" />
+    <NavigationProperty Name="Class" Relationship="CenterManagerModel.FK_Groups_Classes" FromRole="Group" ToRole="Class" />
+    <NavigationProperty Name="Exams" Relationship="CenterManagerModel.FK_Exams_Groups" FromRole="Group" ToRole="Exam" />
+    <NavigationProperty Name="Subject" Relationship="CenterManagerModel.FK_Groups_Subjects" FromRole="Group" ToRole="Subject" />
+    <NavigationProperty Name="StudentsGroups" Relationship="CenterManagerModel.FK_StudentsGroups_Groups" FromRole="Group" ToRole="StudentsGroup" />
+  </EntityType>
+  <EntityType Name="Lecture">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LecNumber" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Attendances" Relationship="CenterManagerModel.FK_Attendance_Lectures" FromRole="Lecture" ToRole="Attendance" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ProgramName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BackColor" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="TitleColor" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STCode" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ST_Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Parent_Number" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_for_Contact" Type="Boolean" Nullable="false" />
+    <Property Name="IsMale" Type="Boolean" Nullable="false" />
+    <Property Name="ClassID" Type="Int32" />
+    <Property Name="School" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Study_Level" Type="Byte" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Attendances" Relationship="CenterManagerModel.FK_Attendance_Student" FromRole="Student" ToRole="Attendance" />
+    <NavigationProperty Name="Class" Relationship="CenterManagerModel.FK_Student_Classes" FromRole="Student" ToRole="Class" />
+    <NavigationProperty Name="StudentBooks" Relationship="CenterManagerModel.FK_StudentBooks_Student" FromRole="Student" ToRole="StudentBook" />
+    <NavigationProperty Name="StudentExams" Relationship="CenterManagerModel.FK_StudentExam_Student" FromRole="Student" ToRole="StudentExam" />
+    <NavigationProperty Name="StudentsGroups" Relationship="CenterManagerModel.FK_StudentsGroups_Student" FromRole="Student" ToRole="StudentsGroup" />
+  </EntityType>
+  <EntityType Name="StudentBook">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookID" Type="Int32" Nullable="false" />
+    <Property Name="STID" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Single" Nullable="false" />
+    <Property Name="BeforeDiscount" Type="Single" Nullable="false" />
+    <Property Name="AfterDiscount" Type="Single" Nullable="false" />
+    <Property Name="Paid" Type="Single" Nullable="false" />
+    <Property Name="Remainder" Type="Single" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Book" Relationship="CenterManagerModel.FK_StudentBooks_Books" FromRole="StudentBook" ToRole="Book" />
+    <NavigationProperty Name="Student" Relationship="CenterManagerModel.FK_StudentBooks_Student" FromRole="StudentBook" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="StudentExam">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STID" Type="Int32" Nullable="false" />
+    <Property Name="ExamID" Type="Int32" Nullable="false" />
+    <Property Name="QID" Type="Int32" />
+    <Property Name="Mark" Type="Double" Nullable="false" />
+    <NavigationProperty Name="ExamDetail" Relationship="CenterManagerModel.FK_StudentExam_ExamDetails" FromRole="StudentExam" ToRole="ExamDetail" />
+    <NavigationProperty Name="Exam" Relationship="CenterManagerModel.FK_StudentExam_Exams" FromRole="StudentExam" ToRole="Exam" />
+    <NavigationProperty Name="Student" Relationship="CenterManagerModel.FK_StudentExam_Student" FromRole="StudentExam" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="StudentsGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="CenterManagerModel.FK_StudentsGroups_Groups" FromRole="StudentsGroup" ToRole="Group" />
+    <NavigationProperty Name="Student" Relationship="CenterManagerModel.FK_StudentsGroups_Student" FromRole="StudentsGroup" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Books" Relationship="CenterManagerModel.FK_Books_Subjects" FromRole="Subject" ToRole="Book" />
+    <NavigationProperty Name="Groups" Relationship="CenterManagerModel.FK_Groups_Subjects" FromRole="Subject" ToRole="Group" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionsID" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="UsersPermission" Relationship="CenterManagerModel.FK_Users_UsersPermissions" FromRole="User" ToRole="UsersPermission" />
+  </EntityType>
+  <EntityType Name="UsersPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainPage" Type="Boolean" Nullable="false" />
+    <Property Name="Students" Type="Boolean" Nullable="false" />
+    <Property Name="AddStudent" Type="Boolean" Nullable="false" />
+    <Property Name="Subjects" Type="Boolean" Nullable="false" />
+    <Property Name="EditClasses" Type="Boolean" Nullable="false" />
+    <Property Name="ShowStudents" Type="Boolean" Nullable="false" />
+    <Property Name="Groups" Type="Boolean" Nullable="false" />
+    <Property Name="AddGroup" Type="Boolean" Nullable="false" />
+    <Property Name="StudentGroups" Type="Boolean" Nullable="false" />
+    <Property Name="ViewAllGroups" Type="Boolean" Nullable="false" />
+    <Property Name="Attendance" Type="Boolean" Nullable="false" />
+    <Property Name="TakeAttendance" Type="Boolean" Nullable="false" />
+    <Property Name="ViewAttendance" Type="Boolean" Nullable="false" />
+    <Property Name="Books" Type="Boolean" Nullable="false" />
+    <Property Name="AddBook" Type="Boolean" Nullable="false" />
+    <Property Name="ViewBooks" Type="Boolean" Nullable="false" />
+    <Property Name="StudentBooks" Type="Boolean" Nullable="false" />
+    <Property Name="Exams" Type="Boolean" Nullable="false" />
+    <Property Name="AddExam" Type="Boolean" Nullable="false" />
+    <Property Name="ViewExams" Type="Boolean" Nullable="false" />
+    <Property Name="CorrentExams" Type="Boolean" Nullable="false" />
+    <Property Name="Users" Type="Boolean" Nullable="false" />
+    <Property Name="AddUser" Type="Boolean" Nullable="false" />
+    <Property Name="EditUsers" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users1" Relationship="CenterManagerModel.FK_Users_UsersPermissions" FromRole="UsersPermission" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Attendance_Groups">
+    <End Type="CenterManagerModel.Group" Role="Group" Multiplicity="0..1" />
+    <End Type="CenterManagerModel.Attendance" Role="Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_Lectures">
+    <End Type="CenterManagerModel.Lecture" Role="Lecture" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Attendance" Role="Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecture">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="LecID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_Student">
+    <End Type="CenterManagerModel.Student" Role="Student" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Attendance" Role="Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Classes">
+    <End Type="CenterManagerModel.Class" Role="Class" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Book" Role="Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Subjects">
+    <End Type="CenterManagerModel.Subject" Role="Subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Book" Role="Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentBooks_Books">
+    <End Type="CenterManagerModel.Book" Role="Book" Multiplicity="1" />
+    <End Type="CenterManagerModel.StudentBook" Role="StudentBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentBook">
+        <PropertyRef Name="BookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Classes">
+    <End Type="CenterManagerModel.Class" Role="Class" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Classes">
+    <End Type="CenterManagerModel.Class" Role="Class" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamDetails_Exams">
+    <End Type="CenterManagerModel.Exam" Role="Exam" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.ExamDetail" Role="ExamDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExamDetail">
+        <PropertyRef Name="ExamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentExam_ExamDetails">
+    <End Type="CenterManagerModel.ExamDetail" Role="ExamDetail" Multiplicity="0..1" />
+    <End Type="CenterManagerModel.StudentExam" Role="StudentExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentExam">
+        <PropertyRef Name="QID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exams_Groups">
+    <End Type="CenterManagerModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="CenterManagerModel.Exam" Role="Exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Exam">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentExam_Exams">
+    <End Type="CenterManagerModel.Exam" Role="Exam" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.StudentExam" Role="StudentExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentExam">
+        <PropertyRef Name="ExamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Subjects">
+    <End Type="CenterManagerModel.Subject" Role="Subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentsGroups_Groups">
+    <End Type="CenterManagerModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="CenterManagerModel.StudentsGroup" Role="StudentsGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentsGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentBooks_Student">
+    <End Type="CenterManagerModel.Student" Role="Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.StudentBook" Role="StudentBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentBook">
+        <PropertyRef Name="STID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentExam_Student">
+    <End Type="CenterManagerModel.Student" Role="Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.StudentExam" Role="StudentExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentExam">
+        <PropertyRef Name="STID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentsGroups_Student">
+    <End Type="CenterManagerModel.Student" Role="Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CenterManagerModel.StudentsGroup" Role="StudentsGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StudentsGroup">
+        <PropertyRef Name="STID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UsersPermissions">
+    <End Type="CenterManagerModel.UsersPermission" Role="UsersPermission" Multiplicity="1" />
+    <End Type="CenterManagerModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersPermission">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PermissionsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
